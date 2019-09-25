@@ -14,6 +14,7 @@
 		15D097E1233B555200404582 /* LogoFinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 15D097DF233B555200404582 /* LogoFinder.xcdatamodeld */; };
 		15D097E3233B555300404582 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15D097E2233B555300404582 /* Assets.xcassets */; };
 		15D097E6233B555300404582 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15D097E4233B555300404582 /* LaunchScreen.storyboard */; };
+		15D097EF233BFD0100404582 /* CompanyClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 15D097EE233BFD0100404582 /* CompanyClassifier.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		15D097E2233B555300404582 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15D097E5233B555300404582 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15D097E7233B555300404582 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15D097EE233BFD0100404582 /* CompanyClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = CompanyClassifier.mlmodel; path = ../../../CompanyClassifier.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				15D097E2233B555300404582 /* Assets.xcassets */,
 				15D097E4233B555300404582 /* LaunchScreen.storyboard */,
 				15D097E7233B555300404582 /* Info.plist */,
+				15D097EE233BFD0100404582 /* CompanyClassifier.mlmodel */,
 				15D097DF233B555200404582 /* LogoFinder.xcdatamodeld */,
 			);
 			path = LogoFinder;
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15D097EF233BFD0100404582 /* CompanyClassifier.mlmodel in Sources */,
 				15D097E1233B555200404582 /* LogoFinder.xcdatamodeld in Sources */,
 				15D097DB233B555200404582 /* ViewController.swift in Sources */,
 				15D097D7233B555200404582 /* AppDelegate.swift in Sources */,
