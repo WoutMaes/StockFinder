@@ -15,19 +15,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="LogoFinder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9r-Vy-ywO">
-                                <rect key="frame" x="94" y="70" width="187" height="48"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="40"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="nKv-vv-8pS">
+                                <rect key="frame" x="61" y="208" width="253" height="252"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="252.5" id="QOd-gt-wko"/>
+                                    <constraint firstAttribute="width" constant="253" id="si9-i2-2OK"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="LogoFinder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDD-TT-ubj">
+                                <rect key="frame" x="55" y="51" width="265" height="66"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="55"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R9r-Vy-ywO" secondAttribute="trailing" constant="143" id="9wk-g8-MaY"/>
-                            <constraint firstItem="R9r-Vy-ywO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="143" id="C0Q-ZR-9Bb"/>
-                            <constraint firstItem="R9r-Vy-ywO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="54" id="iMn-ej-c2Q"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="R9r-Vy-ywO" secondAttribute="bottom" constant="565" id="uNO-Bw-vYx"/>
+                            <constraint firstItem="nKv-vv-8pS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0bl-PR-xxl"/>
+                            <constraint firstItem="nKv-vv-8pS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1Wx-2N-6uF"/>
+                            <constraint firstItem="uDD-TT-ubj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="55" id="9tq-x8-IOb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uDD-TT-ubj" secondAttribute="trailing" constant="55" id="LZf-9U-z3D"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -37,4 +44,7 @@
             <point key="canvasLocation" x="112.8" y="101.19940029985008"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="magnifyingglass.circle.fill" catalog="system" width="64" height="62"/>
+    </resources>
 </document>
