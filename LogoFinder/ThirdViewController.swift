@@ -25,16 +25,45 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let userPickedImage = info[UIImagePickerController.InfoKey.editedImage]
+        if let userPickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            
+            guard let ciImage = CIImage(image: userPickedImage) else {
+                 fatalError("Error, didn't convert to CIImage!")
+            }
+            
+            detect(companyImage: ciImage)
         
-        imageView.image = userPickedImage as? UIImage
-
+        imageView.image = userPickedImage
+        
+        }
         imagePicker.dismiss(animated: true, completion: nil)
     }
     
     
     @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
         present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func detect(companyImage : CIImage) {
+        
+        guard let model = try? VNCoreMLModel(for: CompanyClassifier().model) else {
+            fatalError("Error, didn't import the coreMLModel")
+        }
+        
+        let request = VNCoreMLRequest(model: model) {
+            (request, error) in
+            let companyClassification = request.results?.first as? VNClassificationObservation
+                        
+            self.navigationItem.title = companyClassification?.identifier
+        }
+        
+        let handler = VNImageRequestHandler(ciImage: companyImage)
+        
+        do {
+            try handler.perform([request])
+        } catch {
+            print(error)
+        }
     }
     
     /*
