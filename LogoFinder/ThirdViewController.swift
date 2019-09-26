@@ -9,10 +9,25 @@
 import UIKit
 import CoreML
 import Vision
+import Alamofire
+import SwiftyJSON
 
 class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
+    
+    let wikipediaURl = "https://en.wikipedia.org/w/api.php"
+
+    let parameters : [String:String] = [
+    "format" : "json",
+    "action" : "query",
+    "prop" : "extracts",
+    "exintro" : "",
+    "explaintext" : "",
+    "titles" : companyName,
+    “indexpageids” : "",
+    "redirects" : "1",
+    ]
     
     let imagePicker = UIImagePickerController()
     

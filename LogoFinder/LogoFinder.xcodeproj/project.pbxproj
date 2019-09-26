@@ -17,6 +17,7 @@
 		15D097EF233BFD0100404582 /* CompanyClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 15D097EE233BFD0100404582 /* CompanyClassifier.mlmodel */; };
 		15D097F1233C992E00404582 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D097F0233C992E00404582 /* SecondViewController.swift */; };
 		15D097F5233CABBB00404582 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D097F4233CABBB00404582 /* ThirdViewController.swift */; };
+		3DD6C26C9AF669A22B74C13C /* Pods_LogoFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B9ADFC5D8CC166E19D121A4 /* Pods_LogoFinder.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,9 @@
 		15D097EE233BFD0100404582 /* CompanyClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = CompanyClassifier.mlmodel; path = ../../../CompanyClassifier.mlmodel; sourceTree = "<group>"; };
 		15D097F0233C992E00404582 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		15D097F4233CABBB00404582 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThirdViewController.swift; path = ../ThirdViewController.swift; sourceTree = "<group>"; };
+		2B9ADFC5D8CC166E19D121A4 /* Pods_LogoFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LogoFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		82924A95644900C5B1EB9653 /* Pods-LogoFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogoFinder.debug.xcconfig"; path = "Target Support Files/Pods-LogoFinder/Pods-LogoFinder.debug.xcconfig"; sourceTree = "<group>"; };
+		C897E2691DA2C19C0AEBF2D8 /* Pods-LogoFinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogoFinder.release.xcconfig"; path = "Target Support Files/Pods-LogoFinder/Pods-LogoFinder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DD6C26C9AF669A22B74C13C /* Pods_LogoFinder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +55,8 @@
 			children = (
 				15D097D5233B555200404582 /* LogoFinder */,
 				15D097D4233B555200404582 /* Products */,
+				AD7E95B5A9226F82C39C1D49 /* Pods */,
+				24F5C0924FE85F929976E42C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +86,24 @@
 			path = LogoFinder;
 			sourceTree = "<group>";
 		};
+		24F5C0924FE85F929976E42C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2B9ADFC5D8CC166E19D121A4 /* Pods_LogoFinder.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AD7E95B5A9226F82C39C1D49 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				82924A95644900C5B1EB9653 /* Pods-LogoFinder.debug.xcconfig */,
+				C897E2691DA2C19C0AEBF2D8 /* Pods-LogoFinder.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +111,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 15D097EA233B555300404582 /* Build configuration list for PBXNativeTarget "LogoFinder" */;
 			buildPhases = (
+				FFE7267C8B4CA24EF5E15F97 /* [CP] Check Pods Manifest.lock */,
 				15D097CF233B555200404582 /* Sources */,
 				15D097D0233B555200404582 /* Frameworks */,
 				15D097D1233B555200404582 /* Resources */,
+				6B0C14834489E5B6F0A619A6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -144,6 +171,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6B0C14834489E5B6F0A619A6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LogoFinder/Pods-LogoFinder-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LogoFinder/Pods-LogoFinder-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LogoFinder/Pods-LogoFinder-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FFE7267C8B4CA24EF5E15F97 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LogoFinder-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		15D097CF233B555200404582 /* Sources */ = {
@@ -298,6 +367,7 @@
 		};
 		15D097EB233B555300404582 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82924A95644900C5B1EB9653 /* Pods-LogoFinder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -316,6 +386,7 @@
 		};
 		15D097EC233B555300404582 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C897E2691DA2C19C0AEBF2D8 /* Pods-LogoFinder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
