@@ -15,19 +15,9 @@ import SwiftyJSON
 class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var label: UILabel!
     
     let wikipediaURl = "https://en.wikipedia.org/w/api.php"
-
-    let parameters : [String:String] = [
-    "format" : "json",
-    "action" : "query",
-    "prop" : "extracts",
-    "exintro" : "",
-    "explaintext" : "",
-    "titles" : companyName,
-    “indexpageids” : "",
-    "redirects" : "1",
-    ]
     
     let imagePicker = UIImagePickerController()
     
@@ -67,9 +57,13 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         let request = VNCoreMLRequest(model: model) {
             (request, error) in
-            let companyClassification = request.results?.first as? VNClassificationObservation
+            guard let companyClassification = request.results?.first as? VNClassificationObservation else {
+                fatalError("Couldn't classify image.")
+            }
                         
-            self.navigationItem.title = companyClassification?.identifier
+            self.navigationItem.title = companyClassification.identifier
+            
+            self.requestInfo(companyName: companyClassification.identifier)
         }
         
         let handler = VNImageRequestHandler(ciImage: companyImage)
@@ -79,6 +73,38 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         } catch {
             print(error)
         }
+        
+    }
+    
+    
+        func requestInfo(companyName: String) {
+            
+            let parameters : [String:String] = [
+            "format" : "json",
+            "action" : "query",
+            "prop" : "extracts",
+            "exintro" : "",
+            "explaintext" : "",
+            "titles" : companyName.components(separatedBy: " ").first!,
+            "indexpageids" : "",
+            "redirects" : "1",
+            ]
+            
+            Alamofire.request(wikipediaURl, method: .get, parameters: parameters).responseJSON { (response) in
+                if response.result.isSuccess {
+                    print("Received answer from Wikipedia")
+                    print(response)
+                    print(companyName.components(separatedBy: " ").first!)
+                    let companyJSON : JSON = JSON(response.result.value!)
+                    
+                    let pageId = companyJSON["query"]["pageids"][0].stringValue
+                    
+                    let companyDescription = companyJSON["query"]["pages"][pageId]["extract"].stringValue
+                    
+                    self.label.text = companyDescription
+                }
+            }
+        
     }
     
     /*
