@@ -91,18 +91,28 @@
                         <color key="backgroundColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xJF-gQ-ED1" firstAttribute="top" secondItem="oVO-Yu-FN3" secondAttribute="bottom" id="2SP-eW-pXT"/>
+                            <constraint firstItem="oVO-Yu-FN3" firstAttribute="top" secondItem="bxb-Qc-Mrx" secondAttribute="bottom" id="3dK-34-HK2"/>
                             <constraint firstItem="RTb-Wi-L0A" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="6XF-Cc-PUg"/>
                             <constraint firstItem="bxb-Qc-Mrx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6eE-zW-hKX"/>
+                            <constraint firstItem="oVO-Yu-FN3" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7VW-Jb-sTc"/>
                             <constraint firstItem="oVO-Yu-FN3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7x1-hd-KpB"/>
                             <constraint firstItem="RTb-Wi-L0A" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8Fn-cp-1r7"/>
+                            <constraint firstItem="oVO-Yu-FN3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9Gc-m7-tPG"/>
                             <constraint firstItem="bxb-Qc-Mrx" firstAttribute="top" secondItem="RTb-Wi-L0A" secondAttribute="bottom" id="9mb-6i-MM8"/>
                             <constraint firstItem="oVO-Yu-FN3" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ESf-K8-g0G"/>
+                            <constraint firstItem="xJF-gQ-ED1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ftk-X6-blH"/>
                             <constraint firstItem="xJF-gQ-ED1" firstAttribute="top" secondItem="oVO-Yu-FN3" secondAttribute="bottom" id="RhN-4E-U2g"/>
                             <constraint firstItem="xJF-gQ-ED1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TOD-kL-OgX"/>
                             <constraint firstItem="xJF-gQ-ED1" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="VDO-oe-unt"/>
+                            <constraint firstItem="oVO-Yu-FN3" firstAttribute="top" secondItem="bxb-Qc-Mrx" secondAttribute="bottom" id="Xkw-lg-0HY"/>
+                            <constraint firstItem="xJF-gQ-ED1" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ZbQ-nJ-KxH"/>
                             <constraint firstItem="xJF-gQ-ED1" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="awB-Tm-8ld"/>
+                            <constraint firstItem="xJF-gQ-ED1" firstAttribute="top" secondItem="oVO-Yu-FN3" secondAttribute="bottom" id="cbz-ej-LjI"/>
+                            <constraint firstItem="xJF-gQ-ED1" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="fUf-dD-Wyt"/>
                             <constraint firstItem="bxb-Qc-Mrx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="h2c-En-Tw1"/>
                             <constraint firstItem="RTb-Wi-L0A" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pXB-hA-qaG"/>
+                            <constraint firstItem="xJF-gQ-ED1" firstAttribute="top" secondItem="oVO-Yu-FN3" secondAttribute="bottom" id="qGu-e7-0Iv"/>
+                            <constraint firstItem="xJF-gQ-ED1" firstAttribute="top" secondItem="oVO-Yu-FN3" secondAttribute="bottom" id="t5q-OT-ENT"/>
                             <constraint firstItem="oVO-Yu-FN3" firstAttribute="top" secondItem="bxb-Qc-Mrx" secondAttribute="bottom" id="zMO-xE-Z74"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -135,9 +145,24 @@
                     <view key="view" contentMode="scaleToFill" id="KcG-hf-QCQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0ri-JW-e6j">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="xN9-QD-5n3"/>
                     </view>
-                    <navigationItem key="navigationItem" id="P4O-RS-Q4Z"/>
+                    <navigationItem key="navigationItem" id="P4O-RS-Q4Z">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="cTj-Oo-nMW">
+                            <connections>
+                                <action selector="cameraTapped:" destination="Dbo-ER-9mu" id="3ZR-RY-Lyn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="0ri-JW-e6j" id="Eyv-MZ-DNx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="32X-ae-WKB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

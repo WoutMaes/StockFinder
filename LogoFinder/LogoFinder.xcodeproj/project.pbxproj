@@ -16,7 +16,7 @@
 		15D097E6233B555300404582 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15D097E4233B555300404582 /* LaunchScreen.storyboard */; };
 		15D097EF233BFD0100404582 /* CompanyClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 15D097EE233BFD0100404582 /* CompanyClassifier.mlmodel */; };
 		15D097F1233C992E00404582 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D097F0233C992E00404582 /* SecondViewController.swift */; };
-		15D097F3233CA4B900404582 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D097F2233CA4B900404582 /* ThirdViewController.swift */; };
+		15D097F5233CABBB00404582 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D097F4233CABBB00404582 /* ThirdViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +31,7 @@
 		15D097E7233B555300404582 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15D097EE233BFD0100404582 /* CompanyClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = CompanyClassifier.mlmodel; path = ../../../CompanyClassifier.mlmodel; sourceTree = "<group>"; };
 		15D097F0233C992E00404582 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		15D097F2233CA4B900404582 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		15D097F4233CABBB00404582 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThirdViewController.swift; path = ../ThirdViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +67,8 @@
 				15D097D6233B555200404582 /* AppDelegate.swift */,
 				15D097D8233B555200404582 /* SceneDelegate.swift */,
 				15D097DA233B555200404582 /* ViewController.swift */,
-				15D097F2233CA4B900404582 /* ThirdViewController.swift */,
 				15D097DC233B555200404582 /* Main.storyboard */,
+				15D097F4233CABBB00404582 /* ThirdViewController.swift */,
 				15D097F0233C992E00404582 /* SecondViewController.swift */,
 				15D097E2233B555300404582 /* Assets.xcassets */,
 				15D097E4233B555300404582 /* LaunchScreen.storyboard */,
@@ -153,7 +153,7 @@
 				15D097F1233C992E00404582 /* SecondViewController.swift in Sources */,
 				15D097EF233BFD0100404582 /* CompanyClassifier.mlmodel in Sources */,
 				15D097E1233B555200404582 /* LogoFinder.xcdatamodeld in Sources */,
-				15D097F3233CA4B900404582 /* ThirdViewController.swift in Sources */,
+				15D097F5233CABBB00404582 /* ThirdViewController.swift in Sources */,
 				15D097DB233B555200404582 /* ViewController.swift in Sources */,
 				15D097D7233B555200404582 /* AppDelegate.swift in Sources */,
 				15D097D9233B555200404582 /* SceneDelegate.swift in Sources */,
