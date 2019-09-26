@@ -47,15 +47,57 @@
                                     <constraint firstItem="uDD-TT-ubj" firstAttribute="centerY" secondItem="RTb-Wi-L0A" secondAttribute="centerY" id="oWz-WD-oof"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oVO-Yu-FN3" userLabel="Left Bottom Container">
+                                <rect key="frame" x="0.0" y="446.5" width="187.5" height="220.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8k-X4-GCl">
+                                        <rect key="frame" x="35" y="89" width="117" height="43"/>
+                                        <color key="backgroundColor" red="0.58431372550000005" green="0.64705882349999999" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
+                                        <state key="normal" title="Screener">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="n8k-X4-GCl" firstAttribute="centerX" secondItem="oVO-Yu-FN3" secondAttribute="centerX" id="NLK-Bd-HH1"/>
+                                    <constraint firstItem="n8k-X4-GCl" firstAttribute="centerY" secondItem="oVO-Yu-FN3" secondAttribute="centerY" id="fLz-ds-dm1"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xJF-gQ-ED1" userLabel="Right Bottom Container">
+                                <rect key="frame" x="187.5" y="446.5" width="187.5" height="220.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOB-Cp-1m3">
+                                        <rect key="frame" x="54" y="89" width="79" height="43"/>
+                                        <color key="backgroundColor" red="0.58431372550000005" green="0.64705882349999999" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
+                                        <state key="normal" title="Photo">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="dOB-Cp-1m3" firstAttribute="centerY" secondItem="xJF-gQ-ED1" secondAttribute="centerY" id="e4x-QL-N01"/>
+                                    <constraint firstItem="dOB-Cp-1m3" firstAttribute="centerX" secondItem="xJF-gQ-ED1" secondAttribute="centerX" id="vdN-1H-loT"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="RTb-Wi-L0A" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="6XF-Cc-PUg"/>
                             <constraint firstItem="bxb-Qc-Mrx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6eE-zW-hKX"/>
                             <constraint firstItem="RTb-Wi-L0A" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8Fn-cp-1r7"/>
                             <constraint firstItem="bxb-Qc-Mrx" firstAttribute="top" secondItem="RTb-Wi-L0A" secondAttribute="bottom" id="9mb-6i-MM8"/>
+                            <constraint firstItem="xJF-gQ-ED1" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Ao2-yH-5uK"/>
+                            <constraint firstItem="xJF-gQ-ED1" firstAttribute="top" secondItem="bxb-Qc-Mrx" secondAttribute="bottom" id="W61-eh-6jZ"/>
+                            <constraint firstItem="oVO-Yu-FN3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XCT-uH-dth"/>
+                            <constraint firstItem="xJF-gQ-ED1" firstAttribute="leading" secondItem="oVO-Yu-FN3" secondAttribute="trailing" id="azH-CS-No0"/>
+                            <constraint firstItem="xJF-gQ-ED1" firstAttribute="leading" secondItem="oVO-Yu-FN3" secondAttribute="trailing" id="glv-Br-TUN"/>
                             <constraint firstItem="bxb-Qc-Mrx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="h2c-En-Tw1"/>
+                            <constraint firstItem="xJF-gQ-ED1" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="mwn-IT-3LG"/>
                             <constraint firstItem="RTb-Wi-L0A" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pXB-hA-qaG"/>
+                            <constraint firstItem="oVO-Yu-FN3" firstAttribute="top" secondItem="bxb-Qc-Mrx" secondAttribute="bottom" id="wCS-YU-uvz"/>
+                            <constraint firstItem="oVO-Yu-FN3" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="zPm-6s-PaD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
