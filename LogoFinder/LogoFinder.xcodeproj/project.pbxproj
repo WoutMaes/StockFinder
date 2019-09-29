@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,7 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		15D097D3233B555200404582 /* LogoFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogoFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		15D097D3233B555200404582 /* StockFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15D097D6233B555200404582 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15D097D8233B555200404582 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		15D097DA233B555200404582 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,7 +63,7 @@
 		15D097D4233B555200404582 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				15D097D3233B555200404582 /* LogoFinder.app */,
+				15D097D3233B555200404582 /* StockFinder.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,7 +100,6 @@
 				82924A95644900C5B1EB9653 /* Pods-LogoFinder.debug.xcconfig */,
 				C897E2691DA2C19C0AEBF2D8 /* Pods-LogoFinder.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -123,7 +122,7 @@
 			);
 			name = LogoFinder;
 			productName = LogoFinder;
-			productReference = 15D097D3233B555200404582 /* LogoFinder.app */;
+			productReference = 15D097D3233B555200404582 /* StockFinder.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -378,7 +377,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = WoutMaesProject.LogoFinder;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = StockFinder;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -397,7 +396,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = WoutMaesProject.LogoFinder;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = StockFinder;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

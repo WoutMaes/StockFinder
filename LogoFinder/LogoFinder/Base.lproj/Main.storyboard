@@ -10,7 +10,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LogoFinder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="StockFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,31 +47,12 @@
                                     <constraint firstItem="uDD-TT-ubj" firstAttribute="centerY" secondItem="RTb-Wi-L0A" secondAttribute="centerY" id="oWz-WD-oof"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oVO-Yu-FN3" userLabel="Almost Bottom Container">
-                                <rect key="frame" x="0.0" y="446.5" width="375" height="110.5"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8k-X4-GCl">
-                                        <rect key="frame" x="101.5" y="37" width="172" height="43"/>
-                                        <color key="backgroundColor" red="0.58431372550000005" green="0.64705882349999999" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
-                                        <state key="normal" title="StockScreener">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="4fZ-Bg-jKi" kind="show" id="JKp-cs-eKB"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="n8k-X4-GCl" firstAttribute="centerY" secondItem="oVO-Yu-FN3" secondAttribute="centerY" id="NIC-tX-eXN"/>
-                                    <constraint firstItem="n8k-X4-GCl" firstAttribute="centerX" secondItem="oVO-Yu-FN3" secondAttribute="centerX" id="XRt-3y-QAt"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xJF-gQ-ED1" userLabel="Bottom Container">
                                 <rect key="frame" x="0.0" y="557" width="375" height="110"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOB-Cp-1m3">
-                                        <rect key="frame" x="116" y="33" width="143" height="43"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOB-Cp-1m3">
+                                        <rect key="frame" x="112" y="8" width="151" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.58431372550000005" green="0.64705882349999999" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
                                         <state key="normal" title="Take Picture">
@@ -82,38 +63,34 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="dOB-Cp-1m3" firstAttribute="centerX" secondItem="xJF-gQ-ED1" secondAttribute="centerX" id="VBX-mP-M6A"/>
-                                    <constraint firstItem="dOB-Cp-1m3" firstAttribute="centerY" secondItem="xJF-gQ-ED1" secondAttribute="centerY" id="Ws1-x1-zzx"/>
-                                </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8k-X4-GCl">
+                                <rect key="frame" x="81" y="468" width="213" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.58431372550000005" green="0.64705882349999999" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
+                                <state key="normal" title="StockScreener">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="4fZ-Bg-jKi" kind="show" id="JKp-cs-eKB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="xJF-gQ-ED1" firstAttribute="top" secondItem="oVO-Yu-FN3" secondAttribute="bottom" id="2SP-eW-pXT"/>
-                            <constraint firstItem="oVO-Yu-FN3" firstAttribute="top" secondItem="bxb-Qc-Mrx" secondAttribute="bottom" id="3dK-34-HK2"/>
                             <constraint firstItem="RTb-Wi-L0A" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="6XF-Cc-PUg"/>
                             <constraint firstItem="bxb-Qc-Mrx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6eE-zW-hKX"/>
-                            <constraint firstItem="oVO-Yu-FN3" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7VW-Jb-sTc"/>
-                            <constraint firstItem="oVO-Yu-FN3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7x1-hd-KpB"/>
                             <constraint firstItem="RTb-Wi-L0A" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8Fn-cp-1r7"/>
-                            <constraint firstItem="oVO-Yu-FN3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9Gc-m7-tPG"/>
                             <constraint firstItem="bxb-Qc-Mrx" firstAttribute="top" secondItem="RTb-Wi-L0A" secondAttribute="bottom" id="9mb-6i-MM8"/>
-                            <constraint firstItem="oVO-Yu-FN3" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ESf-K8-g0G"/>
                             <constraint firstItem="xJF-gQ-ED1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ftk-X6-blH"/>
-                            <constraint firstItem="xJF-gQ-ED1" firstAttribute="top" secondItem="oVO-Yu-FN3" secondAttribute="bottom" id="RhN-4E-U2g"/>
                             <constraint firstItem="xJF-gQ-ED1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TOD-kL-OgX"/>
                             <constraint firstItem="xJF-gQ-ED1" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="VDO-oe-unt"/>
-                            <constraint firstItem="oVO-Yu-FN3" firstAttribute="top" secondItem="bxb-Qc-Mrx" secondAttribute="bottom" id="Xkw-lg-0HY"/>
                             <constraint firstItem="xJF-gQ-ED1" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ZbQ-nJ-KxH"/>
                             <constraint firstItem="xJF-gQ-ED1" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="awB-Tm-8ld"/>
-                            <constraint firstItem="xJF-gQ-ED1" firstAttribute="top" secondItem="oVO-Yu-FN3" secondAttribute="bottom" id="cbz-ej-LjI"/>
                             <constraint firstItem="xJF-gQ-ED1" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="fUf-dD-Wyt"/>
                             <constraint firstItem="bxb-Qc-Mrx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="h2c-En-Tw1"/>
                             <constraint firstItem="RTb-Wi-L0A" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pXB-hA-qaG"/>
-                            <constraint firstItem="xJF-gQ-ED1" firstAttribute="top" secondItem="oVO-Yu-FN3" secondAttribute="bottom" id="qGu-e7-0Iv"/>
-                            <constraint firstItem="xJF-gQ-ED1" firstAttribute="top" secondItem="oVO-Yu-FN3" secondAttribute="bottom" id="t5q-OT-ENT"/>
-                            <constraint firstItem="oVO-Yu-FN3" firstAttribute="top" secondItem="bxb-Qc-Mrx" secondAttribute="bottom" id="zMO-xE-Z74"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -126,7 +103,7 @@
         <!--Second View Controller-->
         <scene sceneID="5FQ-li-km3">
             <objects>
-                <viewController id="4fZ-Bg-jKi" customClass="SecondViewController" customModule="LogoFinder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4fZ-Bg-jKi" customClass="SecondViewController" customModule="StockFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LKN-lm-Ef5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -136,12 +113,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZt-ww-jhP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2060" y="-96.7016491754123"/>
+            <point key="canvasLocation" x="2044" y="-89"/>
         </scene>
         <!--Third View Controller-->
         <scene sceneID="Ovj-7L-rvk">
             <objects>
-                <viewController id="Dbo-ER-9mu" customClass="ThirdViewController" customModule="LogoFinder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Dbo-ER-9mu" customClass="ThirdViewController" customModule="StockFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KcG-hf-QCQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

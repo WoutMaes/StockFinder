@@ -16,8 +16,12 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var label: UILabel!
+        
+//    func prefersStatusBarHidden() -> Bool {
+//        return true
+//    }
     
-    let wikipediaURl = "https://en.wikipedia.org/w/api.php"
+    let wikipediaURl : String = "https://en.wikipedia.org/w/api.php"
     
     let imagePicker = UIImagePickerController()
     
@@ -76,6 +80,8 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
     }
     
+    
+    //MARK: - Request info over network with Alamofire
     
         func requestInfo(companyName: String) {
             
