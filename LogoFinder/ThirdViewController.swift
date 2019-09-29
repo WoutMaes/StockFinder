@@ -40,7 +40,7 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     //        return true
     //    }
     
-    //MARK: - Set the imagePicker
+    //MARK: Set the imagePicker
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let userPickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
@@ -58,14 +58,14 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     
-    //MARK: - Tap the camera
+    //MARK: Tap the camera
     
     @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
         present(imagePicker, animated: true, completion: nil)
     }
     
     
-    //MARK: - Detect the Selected Image
+    //MARK: Detect the Selected Image
     func detect(companyImage : CIImage) {
         
         guard let model = try? VNCoreMLModel(for: CompanyClassifier().model) else {
@@ -94,7 +94,7 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     
-    //MARK: - Networking with Alamofire
+    //MARK: Networking with Alamofire
 
     func requestInfo(companyName: String) {
             

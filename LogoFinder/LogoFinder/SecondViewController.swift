@@ -10,15 +10,12 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class SecondViewController: UIViewController {
+class SecondViewController: UITableViewController {
     
     //MARK: - IBOutlets
     
-    @IBOutlet weak var searchContainerView: UIView!
     
-    @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var restoreData: UIButton!
     
     //MARK: - Variables
     
@@ -37,20 +34,15 @@ class SecondViewController: UIViewController {
         super.viewDidLoad()
 
 //        requestStockInfo(companyTicker: "LHA.FRK")
-        searchStock(searchKeyWord: "Apple")
+//        searchStock(searchKeyWord: "Apple")
         
-        
-        searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self
-//            searchController.obscuresBackgroundDuringPresentation = false
-        searchContainerView.addSubview(searchController.searchBar)
-        searchController.searchBar.delegate = self
+
             
             // Do any additional setup after loading the view.
     }
     
 
-    //MARK: - Request Stockinfo over network with Alamofire
+    //MARK: Request Stockinfo over network with Alamofire
 
     func requestStockInfo(companyTicker: String) {
 
@@ -95,20 +87,18 @@ class SecondViewController: UIViewController {
     }
 }
 
+    //MARK: - Extensions
+
 extension SecondViewController : UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
-        
     }
 }
 
-extension SecondViewController: UISearchBarDelegate {
+extension SecondViewController : UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchStock(searchKeyWord: searchBar.text!)
         
     }
 }
