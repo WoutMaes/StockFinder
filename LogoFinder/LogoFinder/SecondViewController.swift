@@ -12,20 +12,24 @@ import SwiftyJSON
 
 class SecondViewController: UIViewController {
     
+    //MARK: - Variables
+    
     let Alphavantage_APIKey : String  = "AIzaSyDJasa57Fp38ZVrg_oQ9ij6FTNiaAMLlyU"
     let AlphaVantage_URL : String = "https://www.alphavantage.co/query?"
 
 
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        requestInfo(companyTicker: "MELE.BR")
+//        requestStockInfo(companyTicker: "MELE.BR")
+        searchStock(searchKeyWord: "Micro")
         // Do any additional setup after loading the view.
     }
     
-    //MARK: - Request info over network with Alamofire
+    //MARK: - Request Stockinfo over network with Alamofire
     
-    func requestInfo(companyTicker: String) {
+    func requestStockInfo(companyTicker: String) {
         
         let params : [String : String] = [
             "function" : "TIME_SERIES_INTRADAY",
@@ -35,8 +39,28 @@ class SecondViewController: UIViewController {
             "apikey" : Alphavantage_APIKey
         ]
         
+        requestOverNetwork(parameters: params)
         
-        Alamofire.request(AlphaVantage_URL, method: .get, parameters: params).responseJSON { (response) in
+    }
+    
+    //MARK: Request Search Endpoint to find a specific Stock
+    
+    func searchStock(searchKeyWord : String) {
+
+        let params : [String : String] = [
+            "function" : "SYMBOL_SEARCH",
+            "keywords" : searchKeyWord,
+            "apikey" : Alphavantage_APIKey
+        ]
+        
+        requestOverNetwork(parameters: params)
+
+    }
+
+    //MARK: Networking with Alamofire
+    
+    func requestOverNetwork(parameters : Parameters) {
+        Alamofire.request(AlphaVantage_URL, method: .get, parameters : parameters).responseJSON { (response) in
             if response.result.isSuccess {
                 let companyResultJSON : JSON = JSON(response.result.value!) //Value mag hier altijd uitgepakt worden, want je weet dat er een antwoord is, want isSuccess is hiet true
                 
