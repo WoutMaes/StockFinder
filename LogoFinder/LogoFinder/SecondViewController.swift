@@ -22,15 +22,15 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        requestStockInfo(companyTicker: "MELE.BR")
+        requestStockInfo(companyTicker: "MELE.BR")
         searchStock(searchKeyWord: "Micro")
         // Do any additional setup after loading the view.
     }
     
     //MARK: - Request Stockinfo over network with Alamofire
-    
+
     func requestStockInfo(companyTicker: String) {
-        
+
         let params : [String : String] = [
             "function" : "TIME_SERIES_INTRADAY",
             "symbol" : companyTicker,
@@ -38,9 +38,10 @@ class SecondViewController: UIViewController {
             "outputsize" : "compact",
             "apikey" : Alphavantage_APIKey
         ]
-        
-        requestOverNetwork(parameters: params)
-        
+
+        let requestStockInfoResult = requestOverNetwork(parameters: params)
+        print(requestStockInfoResult)
+
     }
     
     //MARK: Request Search Endpoint to find a specific Stock
@@ -53,14 +54,15 @@ class SecondViewController: UIViewController {
             "apikey" : Alphavantage_APIKey
         ]
         
-        requestOverNetwork(parameters: params)
+        let searchStockResult = requestOverNetwork(parameters: params)
+        print(searchStockResult)
 
     }
 
     //MARK: Networking with Alamofire
     
-    func requestOverNetwork(parameters : Parameters) {
-        Alamofire.request(AlphaVantage_URL, method: .get, parameters : parameters).responseJSON { (response) in
+    func requestOverNetwork(parameters : Parameters) -> DataRequest {
+        return Alamofire.request(AlphaVantage_URL, method: .get, parameters : parameters).responseJSON { (response) in
             if response.result.isSuccess {
                 let companyResultJSON : JSON = JSON(response.result.value!) //Value mag hier altijd uitgepakt worden, want je weet dat er een antwoord is, want isSuccess is hiet true
                 
