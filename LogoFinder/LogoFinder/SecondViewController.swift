@@ -12,22 +12,44 @@ import SwiftyJSON
 
 class SecondViewController: UIViewController {
     
+    //MARK: - IBOutlets
+    
+    @IBOutlet weak var searchContainerView: UIView!
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var restoreData: UIButton!
+    
     //MARK: - Variables
-
+    
+    var searchController: UISearchController!
+    
+    var originalDataSource: [String] = []
+    var currentDataSource : [String] = []
+    
+    
     let Alphavantage_APIKey : String  = "AIzaSyDJasa57Fp38ZVrg_oQ9ij6FTNiaAMLlyU"
     let AlphaVantage_URL : String = "https://www.alphavantage.co/query?"
 
 
     //MARK: - viewDidLoad
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        requestStockInfo(companyTicker: "MELE.BR")
-        searchStock(searchKeyWord: "Micro")
-        // Do any additional setup after loading the view.
+//        requestStockInfo(companyTicker: "LHA.FRK")
+        searchStock(searchKeyWord: "Apple")
+        
+        
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+//            searchController.obscuresBackgroundDuringPresentation = false
+        searchContainerView.addSubview(searchController.searchBar)
+        searchController.searchBar.delegate = self
+            
+            // Do any additional setup after loading the view.
     }
     
+
     //MARK: - Request Stockinfo over network with Alamofire
 
     func requestStockInfo(companyTicker: String) {
@@ -45,7 +67,7 @@ class SecondViewController: UIViewController {
 
     }
     
-    //MARK: - Request Search Endpoint to find a specific Stock
+    //MARK: Request Search Endpoint to find a specific Stock
     
     func searchStock(searchKeyWord : String) {
 
@@ -60,7 +82,7 @@ class SecondViewController: UIViewController {
 
     }
 
-    //MARK: - Networking with Alamofire
+    //MARK: Networking with Alamofire
     
     func requestOverNetwork(parameters : Parameters) -> DataRequest {
         return Alamofire.request(AlphaVantage_URL, method: .get, parameters : parameters).responseJSON { (response) in
@@ -70,5 +92,23 @@ class SecondViewController: UIViewController {
                 print(companyResultJSON)
             }
         }
+    }
+}
+
+extension SecondViewController : UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+}
+
+extension SecondViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
     }
 }

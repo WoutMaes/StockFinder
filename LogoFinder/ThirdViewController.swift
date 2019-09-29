@@ -16,6 +16,7 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
     
     //MARK: - IBOutlets
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var label: UILabel!
     
@@ -63,6 +64,8 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         present(imagePicker, animated: true, completion: nil)
     }
     
+    
+    //MARK: - Detect the Selected Image
     func detect(companyImage : CIImage) {
         
         guard let model = try? VNCoreMLModel(for: CompanyClassifier().model) else {
