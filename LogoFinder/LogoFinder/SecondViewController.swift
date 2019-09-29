@@ -13,12 +13,13 @@ import SwiftyJSON
 class SecondViewController: UIViewController {
     
     //MARK: - Variables
-    
+
     let Alphavantage_APIKey : String  = "AIzaSyDJasa57Fp38ZVrg_oQ9ij6FTNiaAMLlyU"
     let AlphaVantage_URL : String = "https://www.alphavantage.co/query?"
 
 
     //MARK: - viewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,7 +45,7 @@ class SecondViewController: UIViewController {
 
     }
     
-    //MARK: Request Search Endpoint to find a specific Stock
+    //MARK: - Request Search Endpoint to find a specific Stock
     
     func searchStock(searchKeyWord : String) {
 
@@ -59,7 +60,7 @@ class SecondViewController: UIViewController {
 
     }
 
-    //MARK: Networking with Alamofire
+    //MARK: - Networking with Alamofire
     
     func requestOverNetwork(parameters : Parameters) -> DataRequest {
         return Alamofire.request(AlphaVantage_URL, method: .get, parameters : parameters).responseJSON { (response) in
@@ -70,16 +71,4 @@ class SecondViewController: UIViewController {
             }
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

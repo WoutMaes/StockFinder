@@ -14,16 +14,18 @@ import SwiftyJSON
 
 class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    
+    //MARK: - IBOutlets
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var label: UILabel!
-        
-//    func prefersStatusBarHidden() -> Bool {
-//        return true
-//    }
+    
+    //MARK: - Variables
     
     let wikipediaURl : String = "https://en.wikipedia.org/w/api.php"
-    
     let imagePicker = UIImagePickerController()
+    
+    
+    //MARK: - viewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +34,12 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         imagePicker.allowsEditing = true
         imagePicker.sourceType = .camera
     }
+    
+    //    func prefersStatusBarHidden() -> Bool {
+    //        return true
+    //    }
+    
+    //MARK: - Set the imagePicker
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let userPickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
@@ -48,6 +56,8 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         imagePicker.dismiss(animated: true, completion: nil)
     }
     
+    
+    //MARK: - Tap the camera
     
     @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
         present(imagePicker, animated: true, completion: nil)
@@ -81,46 +91,34 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     
-    //MARK: - Request info over network with Alamofire
-    
-        func requestInfo(companyName: String) {
+    //MARK: - Networking with Alamofire
+
+    func requestInfo(companyName: String) {
             
-            let parameters : [String:String] = [
-            "format" : "json",
-            "action" : "query",
-            "prop" : "extracts",
-            "exintro" : "",
-            "explaintext" : "",
-            "titles" : companyName.components(separatedBy: " ").first!,
-            "indexpageids" : "",
-            "redirects" : "1",
-            ]
+        let params : [String:String] = [
+        "format" : "json",
+        "action" : "query",
+        "prop" : "extracts",
+        "exintro" : "",
+        "explaintext" : "",
+        "titles" : companyName.components(separatedBy: " ").first!,
+        "indexpageids" : "",
+        "redirects" : "1",
+        ]
             
-            Alamofire.request(wikipediaURl, method: .get, parameters: parameters).responseJSON { (response) in
-                if response.result.isSuccess {
-                    print("Received answer from Wikipedia")
-                    print(response)
-                    print(companyName.components(separatedBy: " ").first!)
-                    let companyJSON : JSON = JSON(response.result.value!)
+        Alamofire.request(wikipediaURl, method: .get, parameters: params).responseJSON { (response) in
+            if response.result.isSuccess {
+                print("Received answer from Wikipedia")
+                print(response)
+                print(companyName.components(separatedBy: " ").first!)
+                let companyJSON : JSON = JSON(response.result.value!)
                     
-                    let pageId = companyJSON["query"]["pageids"][0].stringValue
+                let pageId = companyJSON["query"]["pageids"][0].stringValue
                     
-                    let companyDescription = companyJSON["query"]["pages"][pageId]["extract"].stringValue
+                let companyDescription = companyJSON["query"]["pages"][pageId]["extract"].stringValue
                     
-                    self.label.text = companyDescription
-                }
+                self.label.text = companyDescription
             }
-        
+        }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
