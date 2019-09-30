@@ -11,12 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 class SecondViewController: UITableViewController {
-    
-    //MARK: - IBOutlets
-    
-    
-    
-    
+
     //MARK: - Variables
     
     var searchController: UISearchController!
@@ -28,7 +23,7 @@ class SecondViewController: UITableViewController {
     let Alphavantage_APIKey : String  = "AIzaSyDJasa57Fp38ZVrg_oQ9ij6FTNiaAMLlyU"
     let AlphaVantage_URL : String = "https://www.alphavantage.co/query?"
     
-    let companyArray = ["Apple", "Apple Inc"]
+    let companyArray : [String] = ["Apple", "Apple Inc"]
 
 
     //MARK: - viewDidLoad
@@ -37,10 +32,6 @@ class SecondViewController: UITableViewController {
 
 //        requestStockInfo(companyTicker: "LHA.FRK")
 //        searchStock(searchKeyWord: "Apple")
-        
-
-            
-            // Do any additional setup after loading the view.
     }
     
 
@@ -55,9 +46,6 @@ class SecondViewController: UITableViewController {
             "outputsize" : "compact",
             "apikey" : Alphavantage_APIKey
         ]
-
-//        let requestStockInfoResult = requestOverNetwork(parameters: params)
-//        print(requestStockInfoResult)
         
         Alamofire.request(AlphaVantage_URL, method: .get, parameters : params).responseJSON { (response) in
             if response.result.isSuccess {
@@ -79,13 +67,10 @@ class SecondViewController: UITableViewController {
             "apikey" : Alphavantage_APIKey
         ]
         
-//        let searchStockResult = requestOverNetwork(parameters: params)
-//        print(searchStockResult)
-        
         Alamofire.request(AlphaVantage_URL, method: .get, parameters : params).responseJSON { (response) in
             if response.result.isSuccess {
                 let companyResultJSON : JSON = JSON(response.result.value!) //Value mag hier altijd uitgepakt worden, want je weet dat er een antwoord is, want isSuccess is hiet true
-                let companyName = companyResultJSON["bestMatches"][0]["2. name"].stringValue
+                let companyName = companyResultJSON["bestMatches"][0]["2. name"].stringValue //Stap 1. Nog een beetje aanpassen zodat je alle voorstellen krijgt en niet enkel de eerste.
                 print(companyName)
             }
         }
@@ -125,8 +110,13 @@ class SecondViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(companyArray[indexPath.row])
+        
+        //Stap 3. Hier moet je als er op een rij geclickd wordt de info krijgen van het bedrijf op een andere viewController. Dus er moet een nieuw scherm gemaakt worden in Main.Storyboard
     }
+    
 }
+
+
     //MARK: - Extensions
 
 extension SecondViewController : UISearchResultsUpdating {
@@ -139,11 +129,8 @@ extension SecondViewController : UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let companyName : () = searchStock(searchKeyWord: searchBar.text!)
-//        let companyJSON = searchStock(searchKeyWord: searchBar.text!)
-//
-//        let companyName = companyJSON["bestMatches"][0]["2. name"].stringValue
         
-//        print(companyJSON)
+        //Stap 2. Hier zou de tableView moeten worden geupdated met alle voorgestelde bedrijven die je krijgt van searchStock
     }
 }
 
