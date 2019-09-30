@@ -27,6 +27,8 @@ class SecondViewController: UITableViewController {
     
     let Alphavantage_APIKey : String  = "AIzaSyDJasa57Fp38ZVrg_oQ9ij6FTNiaAMLlyU"
     let AlphaVantage_URL : String = "https://www.alphavantage.co/query?"
+    
+    let companyArray = ["Apple", "Apple Inc"]
 
 
     //MARK: - viewDidLoad
@@ -54,8 +56,16 @@ class SecondViewController: UITableViewController {
             "apikey" : Alphavantage_APIKey
         ]
 
-        let requestStockInfoResult = requestOverNetwork(parameters: params)
-        print(requestStockInfoResult)
+//        let requestStockInfoResult = requestOverNetwork(parameters: params)
+//        print(requestStockInfoResult)
+        
+        Alamofire.request(AlphaVantage_URL, method: .get, parameters : params).responseJSON { (response) in
+            if response.result.isSuccess {
+                let companyResultJSON : JSON = JSON(response.result.value!) //Value mag hier altijd uitgepakt worden, want je weet dat er een antwoord is, want isSuccess is hiet true
+                
+                print(companyResultJSON)
+            }
+        }
 
     }
     
@@ -69,24 +79,54 @@ class SecondViewController: UITableViewController {
             "apikey" : Alphavantage_APIKey
         ]
         
-        let searchStockResult = requestOverNetwork(parameters: params)
-        print(searchStockResult)
+//        let searchStockResult = requestOverNetwork(parameters: params)
+//        print(searchStockResult)
+        
+        Alamofire.request(AlphaVantage_URL, method: .get, parameters : params).responseJSON { (response) in
+            if response.result.isSuccess {
+                let companyResultJSON : JSON = JSON(response.result.value!) //Value mag hier altijd uitgepakt worden, want je weet dat er een antwoord is, want isSuccess is hiet true
+                let companyName = companyResultJSON["bestMatches"][0]["2. name"].stringValue
+                print(companyName)
+            }
+        }
 
     }
 
     //MARK: Networking with Alamofire
+//
+//    func requestOverNetwork(parameters : Parameters) -> DataRequest {
+//        return Alamofire.request(AlphaVantage_URL, method: .get, parameters : parameters).responseJSON { (response) in
+//            if response.result.isSuccess {
+//                let companyResultJSON : JSON = JSON(response.result.value!) //Value mag hier altijd uitgepakt worden, want je weet dat er een antwoord is, want isSuccess is hiet true
+//
+//                print(companyResultJSON)
+//            }
+//        }
+//    }
     
-    func requestOverNetwork(parameters : Parameters) -> DataRequest {
-        return Alamofire.request(AlphaVantage_URL, method: .get, parameters : parameters).responseJSON { (response) in
-            if response.result.isSuccess {
-                let companyResultJSON : JSON = JSON(response.result.value!) //Value mag hier altijd uitgepakt worden, want je weet dat er een antwoord is, want isSuccess is hiet true
-                
-                print(companyResultJSON)
-            }
-        }
+    
+    //MARK: - UITableView Datasource Methods
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StockName", for: indexPath)
+        
+        cell.textLabel?.text = companyArray[indexPath.row]
+        
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return companyArray.count
+    }
+
+
+    //MARK: - UITableView Delegate Methods
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(companyArray[indexPath.row])
     }
 }
-
     //MARK: - Extensions
 
 extension SecondViewController : UISearchResultsUpdating {
@@ -98,7 +138,12 @@ extension SecondViewController : UISearchResultsUpdating {
 extension SecondViewController : UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchStock(searchKeyWord: searchBar.text!)
+        let companyName : () = searchStock(searchKeyWord: searchBar.text!)
+//        let companyJSON = searchStock(searchKeyWord: searchBar.text!)
+//
+//        let companyName = companyJSON["bestMatches"][0]["2. name"].stringValue
         
+//        print(companyJSON)
     }
 }
+
