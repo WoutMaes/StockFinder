@@ -15,22 +15,16 @@ class SecondViewController: UITableViewController {
     //MARK: - Variables
     
     var searchController: UISearchController!
-    
-//    var originalDataSource: [String] = []
-//    var currentDataSource : [String] = []
-    
+    var companyArray : [String] = []
     
     let Alphavantage_APIKey : String  = "AIzaSyDJasa57Fp38ZVrg_oQ9ij6FTNiaAMLlyU"
     let AlphaVantage_URL : String = "https://www.alphavantage.co/query?"
-    
-    var companyArray : [String] = []
-
 
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        requestStockInfo(companyTicker: "LHA.FRK")
+//        requestStockInfo(companyTicker: "MELE.BRU")
 //        searchStock(searchKeyWord: "Apple")
     }
     
@@ -71,9 +65,10 @@ class SecondViewController: UITableViewController {
             if response.result.isSuccess {
                 let companyResultJSON : JSON = JSON(response.result.value!) //Value mag hier altijd uitgepakt worden, want je weet dat er een antwoord is, want isSuccess is hier true
                 for i in 0..<companyResultJSON["bestMatches"].count {
-                    let companyName = companyResultJSON["bestMatches"][i]["2. name"].stringValue
+                    let companyName = companyResultJSON["bestMatches"][i]["1. symbol"].stringValue
                     self.companyArray.append(companyName)
                 }
+                print(companyResultJSON)
                 print(self.companyArray)
                 
                 self.tableView.reloadData()
