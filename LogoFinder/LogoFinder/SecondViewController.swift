@@ -69,16 +69,14 @@ class SecondViewController: UITableViewController {
         
         Alamofire.request(AlphaVantage_URL, method: .get, parameters : params).responseJSON { (response) in
             if response.result.isSuccess {
-                let companyResultJSON : JSON = JSON(response.result.value!) //Value mag hier altijd uitgepakt worden, want je weet dat er een antwoord is, want isSuccess is hiet true
-//                let companyName = companyResultJSON["bestMatches"][0]["2. name"].stringValue //Stap 1. Nog een beetje aanpassen zodat je alle voorstellen krijgt en niet enkel de eerste.
+                let companyResultJSON : JSON = JSON(response.result.value!) //Value mag hier altijd uitgepakt worden, want je weet dat er een antwoord is, want isSuccess is hier true
                 for i in 0..<companyResultJSON["bestMatches"].count {
-                    var companyName = companyResultJSON["bestMatches"][i]["2. name"].stringValue
+                    let companyName = companyResultJSON["bestMatches"][i]["2. name"].stringValue
                     self.companyArray.append(companyName)
                 }
-                
                 print(self.companyArray)
                 
-                self.companyArray = []
+                self.tableView.reloadData()
             }
         }
 
@@ -104,7 +102,7 @@ class SecondViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StockName", for: indexPath)
         
         cell.textLabel?.text = companyArray[indexPath.row]
-        
+                
         return cell
     }
     
@@ -135,8 +133,10 @@ extension SecondViewController : UISearchResultsUpdating {
 extension SecondViewController : UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        let companyName : () = searchStock(searchKeyWord: searchBar.text!)
+        searchStock(searchKeyWord: searchBar.text!)
         
+        companyArray = []
+
         //Stap 2. Hier zou de tableView moeten worden geupdated met alle voorgestelde bedrijven die je krijgt van searchStock
     }
 }
