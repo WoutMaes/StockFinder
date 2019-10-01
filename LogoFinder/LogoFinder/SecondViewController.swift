@@ -16,14 +16,14 @@ class SecondViewController: UITableViewController {
     
     var searchController: UISearchController!
     
-    var originalDataSource: [String] = []
-    var currentDataSource : [String] = []
+//    var originalDataSource: [String] = []
+//    var currentDataSource : [String] = []
     
     
     let Alphavantage_APIKey : String  = "AIzaSyDJasa57Fp38ZVrg_oQ9ij6FTNiaAMLlyU"
     let AlphaVantage_URL : String = "https://www.alphavantage.co/query?"
     
-    let companyArray : [String] = ["Apple", "Apple Inc"]
+    var companyArray : [String] = []
 
 
     //MARK: - viewDidLoad
@@ -70,8 +70,15 @@ class SecondViewController: UITableViewController {
         Alamofire.request(AlphaVantage_URL, method: .get, parameters : params).responseJSON { (response) in
             if response.result.isSuccess {
                 let companyResultJSON : JSON = JSON(response.result.value!) //Value mag hier altijd uitgepakt worden, want je weet dat er een antwoord is, want isSuccess is hiet true
-                let companyName = companyResultJSON["bestMatches"][0]["2. name"].stringValue //Stap 1. Nog een beetje aanpassen zodat je alle voorstellen krijgt en niet enkel de eerste.
-                print(companyName)
+//                let companyName = companyResultJSON["bestMatches"][0]["2. name"].stringValue //Stap 1. Nog een beetje aanpassen zodat je alle voorstellen krijgt en niet enkel de eerste.
+                for i in 0..<companyResultJSON["bestMatches"].count {
+                    var companyName = companyResultJSON["bestMatches"][i]["2. name"].stringValue
+                    self.companyArray.append(companyName)
+                }
+                
+                print(self.companyArray)
+                
+                self.companyArray = []
             }
         }
 
