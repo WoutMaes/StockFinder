@@ -21,6 +21,7 @@ class SecondViewController: UITableViewController {
     let AlphaVantage_URL : String = "https://www.alphavantage.co/query?"
 
     //MARK: - viewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -84,7 +85,6 @@ class SecondViewController: UITableViewController {
     //MARK: - UITableView Delegate Methods
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print(companyArray[indexPath.row])
         
         let DetailViewController = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController
         
@@ -100,21 +100,12 @@ class SecondViewController: UITableViewController {
 
     //MARK: - Extensions
 
-//extension SecondViewController : UISearchResultsUpdating {
-//
-//    func updateSearchResults(for searchController: UISearchController) {
-//    }
-//}
-
 extension SecondViewController : UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchStock(searchKeyWord: searchBar.text!)
         
         companyArray = []
-        
-        
-
         //Stap 2. Hier zou de tableView moeten worden geupdated met alle voorgestelde bedrijven die je krijgt van searchStock
     }
 }

@@ -12,6 +12,10 @@ import SwiftyJSON
 
 class DetailViewController: UIViewController {
     
+    //MARK: - IBOutlets
+    
+    @IBOutlet weak var labelName: UILabel!
+    
     //MARK: - Variables
     
     let Alphavantage_APIKey : String  = "AIzaSyDJasa57Fp38ZVrg_oQ9ij6FTNiaAMLlyU"
@@ -21,7 +25,6 @@ class DetailViewController: UIViewController {
 
     //MARK: - viewDidLoad
     
-    @IBOutlet weak var labelName: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -48,9 +51,5 @@ class DetailViewController: UIViewController {
                    print(companyResultJSON)
                }
            }
-
        }
-       
-
-
 }

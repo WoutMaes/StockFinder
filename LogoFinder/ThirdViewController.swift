@@ -36,10 +36,6 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         imagePicker.sourceType = .camera
     }
     
-    //    func prefersStatusBarHidden() -> Bool {
-    //        return true
-    //    }
-    
     //MARK: Set the imagePicker
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -63,7 +59,6 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
         present(imagePicker, animated: true, completion: nil)
     }
-    
     
     //MARK: Detect the Selected Image
     func detect(companyImage : CIImage) {
@@ -92,7 +87,6 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
         
     }
-    
     
     //MARK: Networking with Alamofire
 
