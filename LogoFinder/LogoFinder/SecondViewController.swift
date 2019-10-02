@@ -24,31 +24,7 @@ class SecondViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        requestStockInfo(companyTicker: "AAPL")
 //        searchStock(searchKeyWord: "Apple")
-    }
-    
-
-    //MARK: Request Stockinfo over network with Alamofire
-
-    func requestStockInfo(companyTicker: String) {
-
-        let params : [String : String] = [
-            "function" : "TIME_SERIES_INTRADAY",
-            "symbol" : companyTicker,
-            "interval" : "60min",
-            "outputsize" : "compact",
-            "apikey" : Alphavantage_APIKey
-        ]
-        
-        Alamofire.request(AlphaVantage_URL, method: .get, parameters : params).responseJSON { (response) in
-            if response.result.isSuccess {
-                let companyResultJSON : JSON = JSON(response.result.value!) //Value mag hier altijd uitgepakt worden, want je weet dat er een antwoord is, want isSuccess is hiet true
-                
-                print(companyResultJSON)
-            }
-        }
-
     }
     
     //MARK: Request Search Endpoint to find a specific Stock
@@ -65,7 +41,7 @@ class SecondViewController: UITableViewController {
             if response.result.isSuccess {
                 let companyResultJSON : JSON = JSON(response.result.value!) //Value mag hier altijd uitgepakt worden, want je weet dat er een antwoord is, want isSuccess is hier true
                 for i in 0..<companyResultJSON["bestMatches"].count {
-                    let companyName = companyResultJSON["bestMatches"][i]["2. name"].stringValue
+                    let companyName = companyResultJSON["bestMatches"][i]["1. symbol"].stringValue
                     self.companyArray.append(companyName)
                 }
                 print(self.companyArray)
@@ -108,7 +84,13 @@ class SecondViewController: UITableViewController {
     //MARK: - UITableView Delegate Methods
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(companyArray[indexPath.row])
+//        print(companyArray[indexPath.row])
+        
+        let DetailViewController = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController
+        
+        DetailViewController?.name = companyArray[indexPath.row]
+        
+        self.navigationController?.pushViewController(DetailViewController!, animated: true)
         
         //Stap 3. Hier moet je als er op een rij geclickd wordt de info krijgen van het bedrijf op een andere viewController. Dus er moet een nieuw scherm gemaakt worden in Main.Storyboard
     }
@@ -130,6 +112,8 @@ extension SecondViewController : UISearchBarDelegate {
         searchStock(searchKeyWord: searchBar.text!)
         
         companyArray = []
+        
+        
 
         //Stap 2. Hier zou de tableView moeten worden geupdated met alle voorgestelde bedrijven die je krijgt van searchStock
     }
