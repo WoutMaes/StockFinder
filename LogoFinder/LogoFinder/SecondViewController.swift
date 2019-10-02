@@ -24,7 +24,7 @@ class SecondViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        requestStockInfo(companyTicker: "MELE.BRU")
+//        requestStockInfo(companyTicker: "AAPL")
 //        searchStock(searchKeyWord: "Apple")
     }
     
@@ -65,10 +65,9 @@ class SecondViewController: UITableViewController {
             if response.result.isSuccess {
                 let companyResultJSON : JSON = JSON(response.result.value!) //Value mag hier altijd uitgepakt worden, want je weet dat er een antwoord is, want isSuccess is hier true
                 for i in 0..<companyResultJSON["bestMatches"].count {
-                    let companyName = companyResultJSON["bestMatches"][i]["1. symbol"].stringValue
+                    let companyName = companyResultJSON["bestMatches"][i]["2. name"].stringValue
                     self.companyArray.append(companyName)
                 }
-                print(companyResultJSON)
                 print(self.companyArray)
                 
                 self.tableView.reloadData()
@@ -119,11 +118,11 @@ class SecondViewController: UITableViewController {
 
     //MARK: - Extensions
 
-extension SecondViewController : UISearchResultsUpdating {
-    
-    func updateSearchResults(for searchController: UISearchController) {
-    }
-}
+//extension SecondViewController : UISearchResultsUpdating {
+//
+//    func updateSearchResults(for searchController: UISearchController) {
+//    }
+//}
 
 extension SecondViewController : UISearchBarDelegate {
     
