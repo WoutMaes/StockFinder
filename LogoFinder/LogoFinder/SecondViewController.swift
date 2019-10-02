@@ -15,7 +15,7 @@ class SecondViewController: UITableViewController {
     //MARK: - Variables
     
     var searchController: UISearchController!
-    var companyArray : [String] = []
+    var companyArray : [String] = [] //Bevat de lijst met bedrijven van searchStock
     
     let Alphavantage_APIKey : String  = "AIzaSyDJasa57Fp38ZVrg_oQ9ij6FTNiaAMLlyU"
     let AlphaVantage_URL : String = "https://www.alphavantage.co/query?"
@@ -45,8 +45,6 @@ class SecondViewController: UITableViewController {
                     let companyName = companyResultJSON["bestMatches"][i]["1. symbol"].stringValue
                     self.companyArray.append(companyName)
                 }
-                print(self.companyArray)
-                
                 self.tableView.reloadData()
             }
         }
