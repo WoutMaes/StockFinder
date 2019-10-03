@@ -72,7 +72,6 @@ class DetailViewController: UITableViewController {
                 self.companyDetailArray.append(self.companyClose)
                 self.companyDetailArray.append(self.companyVolume)
 
-                
                 self.tableView.reloadData()
                }
            }
