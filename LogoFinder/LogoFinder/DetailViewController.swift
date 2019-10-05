@@ -44,9 +44,8 @@ class DetailViewController: UITableViewController {
        func requestStockInfo(companyTicker: String) {
 
            let params : [String : String] = [
-               "function" : "TIME_SERIES_DAILY", //TIME_SERIES_DAILY , TIME_SERIES_INTRADAY
+               "function" : "TIME_SERIES_DAILY",
                "symbol" : companyTicker,
-//               "interval" : "60min",
                "outputsize" : "compact",
                "apikey" : Alphavantage_APIKey
            ]
@@ -84,7 +83,7 @@ class DetailViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StockInfo", for: indexPath)
         
         cell.textLabel?.text = companyDetailArray[indexPath.row]
-                
+        
         return cell
     }
     
