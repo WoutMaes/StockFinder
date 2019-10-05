@@ -57,6 +57,8 @@ class ImagePickerViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
         present(imagePicker, animated: true, completion: nil)
+        
+        let alert = UIAlertController(title: "Attention", message: "Take a picture of a Logo", preferredStyle: .alert)
     }
     
     //MARK: Detect the Selected Image
@@ -90,23 +92,23 @@ class ImagePickerViewController: UIViewController, UIImagePickerControllerDelega
     //MARK: Networking with Alamofire
 
     func requestInfo(companyName: String) {
-            
+        
+        let companyNames = companyName.components(separatedBy: " ")
+        let title = companyNames[0] + " " + companyNames[1]
+
         let params : [String:String] = [
         "format" : "json",
         "action" : "query",
         "prop" : "extracts",
         "exintro" : "",
         "explaintext" : "",
-        "titles" : companyName.components(separatedBy: " ").first!,
+        "titles" : title,
         "indexpageids" : "",
         "redirects" : "1",
         ]
-            
+        
         Alamofire.request(wikipediaURl, method: .get, parameters: params).responseJSON { (response) in
             if response.result.isSuccess {
-                print("Received answer from Wikipedia")
-                print(response)
-                print(companyName.components(separatedBy: " ").first!)
                 let companyJSON : JSON = JSON(response.result.value!)
                     
                 let pageId = companyJSON["query"]["pageids"][0].stringValue
