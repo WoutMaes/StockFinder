@@ -12,7 +12,7 @@ import Vision
 import Alamofire
 import SwiftyJSON
 
-class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ImagePickerViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     
     //MARK: - IBOutlets

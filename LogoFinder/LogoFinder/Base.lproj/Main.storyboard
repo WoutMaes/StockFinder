@@ -114,16 +114,16 @@
             </objects>
             <point key="canvasLocation" x="1052" y="101.19940029985008"/>
         </scene>
-        <!--Second View Controller-->
+        <!--Search Stock View Controller-->
         <scene sceneID="Ox7-s5-gfh">
             <objects>
-                <tableViewController id="OT8-sI-Zqk" customClass="SecondViewController" customModule="StockFinder" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="OT8-sI-Zqk" customClass="SearchStockViewController" customModule="StockFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Cof-Iy-SbE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="Rvt-8O-bvT">
-                            <rect key="frame" x="0.0" y="0.0" width="83" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
@@ -193,10 +193,10 @@
             </objects>
             <point key="canvasLocation" x="2967" y="-172"/>
         </scene>
-        <!--Third View Controller-->
+        <!--Image Picker View Controller-->
         <scene sceneID="Ovj-7L-rvk">
             <objects>
-                <viewController id="Dbo-ER-9mu" customClass="ThirdViewController" customModule="StockFinder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Dbo-ER-9mu" customClass="ImagePickerViewController" customModule="StockFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KcG-hf-QCQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

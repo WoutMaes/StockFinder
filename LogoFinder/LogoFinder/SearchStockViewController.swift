@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class SecondViewController: UITableViewController {
+class SearchStockViewController: UITableViewController {
 
     //MARK: - Variables
     
@@ -100,7 +100,7 @@ class SecondViewController: UITableViewController {
 
     //MARK: - Extensions
 
-extension SecondViewController : UISearchBarDelegate {
+extension SearchStockViewController : UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchStock(searchKeyWord: searchBar.text!)
