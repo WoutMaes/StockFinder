@@ -60,11 +60,11 @@ class DetailViewController: UITableViewController {
                 
 //                let latestRefresh = companyResultJSON["Meta Data"]["3. Last Refreshed"].stringValue
                 
-                 self.companyOpen = companyResultJSON["Time Series (Daily)"][latestRefresh]["1. open"].stringValue
-                 self.companyHigh = companyResultJSON["Time Series (Daily)"][latestRefresh]["2. high"].stringValue
+                self.companyOpen = companyResultJSON["Time Series (Daily)"][latestRefresh]["1. open"].stringValue
+                self.companyHigh = companyResultJSON["Time Series (Daily)"][latestRefresh]["2. high"].stringValue
                 self.companyLow = companyResultJSON["Time Series (Daily)"][latestRefresh]["3. low"].stringValue
-                 self.companyClose = companyResultJSON["Time Series (Daily)"][latestRefresh]["4. close"].stringValue
-                 self.companyVolume = companyResultJSON["Time Series (Daily)"][latestRefresh]["5. volume"].stringValue
+                self.companyClose = companyResultJSON["Time Series (Daily)"][latestRefresh]["4. close"].stringValue
+                self.companyVolume = companyResultJSON["Time Series (Daily)"][latestRefresh]["5. volume"].stringValue
                     
                 self.companyDetailArray.append(self.companyOpen)
                 self.companyDetailArray.append(self.companyHigh)

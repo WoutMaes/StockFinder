@@ -37,16 +37,18 @@ class SecondViewController: UITableViewController {
             "keywords" : searchKeyWord,
             "apikey" : Alphavantage_APIKey
         ]
-        
         Alamofire.request(AlphaVantage_URL, method: .get, parameters : params).responseJSON { (response) in
             if response.result.isSuccess {
+                
                 let companyResultJSON : JSON = JSON(response.result.value!) //Value mag hier altijd uitgepakt worden, want je weet dat er een antwoord is, want isSuccess is hier true
                 for i in 0..<companyResultJSON["bestMatches"].count {
                     let companyName = companyResultJSON["bestMatches"][i]["1. symbol"].stringValue
                     self.companyArray.append(companyName)
                 }
-                self.tableView.reloadData()
+            } else if response.result.isFailure {
+                print("Error didn't get response of Alpha Vantage")
             }
+            self.tableView.reloadData()
         }
 
     }
@@ -102,8 +104,9 @@ extension SecondViewController : UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchStock(searchKeyWord: searchBar.text!)
-        
+
         companyArray = []
+        
         //Stap 2. Hier zou de tableView moeten worden geupdated met alle voorgestelde bedrijven die je krijgt van searchStock
     }
 }
