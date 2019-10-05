@@ -25,7 +25,6 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     let wikipediaURl : String = "https://en.wikipedia.org/w/api.php"
     let imagePicker = UIImagePickerController()
     
-    
     //MARK: - viewDidLoad
     
     override func viewDidLoad() {
