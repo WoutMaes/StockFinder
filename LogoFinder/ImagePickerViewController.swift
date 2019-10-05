@@ -57,8 +57,6 @@ class ImagePickerViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
         present(imagePicker, animated: true, completion: nil)
-        
-        let alert = UIAlertController(title: "Attention", message: "Take a picture of a Logo", preferredStyle: .alert)
     }
     
     //MARK: Detect the Selected Image
