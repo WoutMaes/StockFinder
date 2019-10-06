@@ -24,8 +24,6 @@ class SearchStockViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        searchStock(searchKeyWord: "Apple")
     }
     
     //MARK: Request Search Endpoint to find a specific Stock
@@ -90,7 +88,7 @@ class SearchStockViewController: UITableViewController {
         
         DetailViewController?.name = companyArray[indexPath.row]
         
-        self.navigationController?.pushViewController(DetailViewController!, animated: true)
+        self.navigationController?.pushViewController(DetailViewController!, animated: false)
         
         //Stap 3. Hier moet je als er op een rij geclickd wordt de info krijgen van het bedrijf op een andere viewController. Dus er moet een nieuw scherm gemaakt worden in Main.Storyboard
     }

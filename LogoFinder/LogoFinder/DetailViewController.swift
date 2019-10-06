@@ -22,6 +22,7 @@ class DetailViewController: UITableViewController {
     let AlphaVantage_URL : String = "https://www.alphavantage.co/query?"
     
     var name = ""
+    var company = ""
     
     var companyDetailArray : [String] = []
     var companyVolume : String = ""
@@ -36,13 +37,38 @@ class DetailViewController: UITableViewController {
         super.viewDidLoad()
 
         labelName.text = name
-        requestStockInfo(companyTicker: name)
+        if company != "" {
+            searchStock(searchKeyWord: company)
+        }
+        if name != "" {
+            requestStockInfo(companyTicker: name)
+        }
+    }
+    
+    
+    //MARK: Request Search Endpoint to find a specific Stock
+       
+    func searchStock(searchKeyWord : String) {
+        let params : [String : String] = [
+            "function" : "SYMBOL_SEARCH",
+            "keywords" : searchKeyWord.components(separatedBy: " ").first!,
+            "apikey" : Alphavantage_APIKey
+        ]
+        
+        Alamofire.request(AlphaVantage_URL, method: .get, parameters : params).responseJSON { (response) in
+            if response.result.isSuccess {
+                let companyResultJSON : JSON = JSON(response.result.value!) //Value mag hier altijd uitgepakt worden, want je weet dat er een antwoord is, want isSuccess is hier true
+                self.requestStockInfo(companyTicker: companyResultJSON["bestMatches"][0]["1. symbol"].stringValue)
+                } else if response.result.isFailure {
+                print("Error didn't get response of Alpha Vantage")
+            }
+        }
     }
     
     //MARK: Request Stockinfo over network with Alamofire
 
        func requestStockInfo(companyTicker: String) {
-
+        
            let params : [String : String] = [
                "function" : "TIME_SERIES_DAILY",
                "symbol" : companyTicker,
@@ -65,12 +91,12 @@ class DetailViewController: UITableViewController {
                 self.companyClose = companyResultJSON["Time Series (Daily)"][latestRefresh]["4. close"].stringValue
                 self.companyVolume = companyResultJSON["Time Series (Daily)"][latestRefresh]["5. volume"].stringValue
                     
-                self.companyDetailArray.append(self.companyOpen)
-                self.companyDetailArray.append(self.companyHigh)
-                self.companyDetailArray.append(self.companyLow)
-                self.companyDetailArray.append(self.companyClose)
-                self.companyDetailArray.append(self.companyVolume)
-
+                self.companyDetailArray.append("Open:         " + self.companyOpen)
+                self.companyDetailArray.append("High:         " + self.companyHigh)
+                self.companyDetailArray.append("Low:          " + self.companyLow)
+                self.companyDetailArray.append("Close:        " + self.companyClose)
+                self.companyDetailArray.append("Volume:       " + self.companyVolume)
+                print(self.companyDetailArray)
                 self.tableView.reloadData()
                }
            }

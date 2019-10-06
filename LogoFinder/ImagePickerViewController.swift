@@ -24,6 +24,7 @@ class ImagePickerViewController: UIViewController, UIImagePickerControllerDelega
     
     let wikipediaURl : String = "https://en.wikipedia.org/w/api.php"
     let imagePicker = UIImagePickerController()
+    var company : String = ""
     
     //MARK: - viewDidLoad
     
@@ -47,11 +48,13 @@ class ImagePickerViewController: UIViewController, UIImagePickerControllerDelega
             detect(companyImage: ciImage)
         
         imageView.image = userPickedImage
-        
         }
         imagePicker.dismiss(animated: true, completion: nil)
+        
+        
+        let imageGesture = UITapGestureRecognizer(target: self, action: #selector(onTappedImage))
+        imageView.addGestureRecognizer(imageGesture)
     }
-    
     
     //MARK: Tap the camera
     
@@ -73,6 +76,7 @@ class ImagePickerViewController: UIViewController, UIImagePickerControllerDelega
             }
                         
             self.navigationItem.title = companyClassification.identifier
+            self.company = companyClassification.identifier
             
             self.requestInfo(companyName: companyClassification.identifier)
         }
@@ -84,7 +88,17 @@ class ImagePickerViewController: UIViewController, UIImagePickerControllerDelega
         } catch {
             print(error)
         }
+    }
+    
+    //MARK: Tap image
+    
+    @objc func onTappedImage(sender: UITapGestureRecognizer) {
         
+        let DetailViewController = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController
+               
+        DetailViewController?.company = company
+               
+        self.navigationController?.pushViewController(DetailViewController!, animated: false)
     }
     
     //MARK: Networking with Alamofire
