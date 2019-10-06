@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15B40399234A14D70015CF9B /* CompanyClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 15B40398234A14D70015CF9B /* CompanyClassifier.mlmodel */; };
 		15D097D7233B555200404582 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D097D6233B555200404582 /* AppDelegate.swift */; };
 		15D097D9233B555200404582 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D097D8233B555200404582 /* SceneDelegate.swift */; };
 		15D097DB233B555200404582 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D097DA233B555200404582 /* ViewController.swift */; };
@@ -14,7 +15,6 @@
 		15D097E1233B555200404582 /* LogoFinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 15D097DF233B555200404582 /* LogoFinder.xcdatamodeld */; };
 		15D097E3233B555300404582 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15D097E2233B555300404582 /* Assets.xcassets */; };
 		15D097E6233B555300404582 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15D097E4233B555300404582 /* LaunchScreen.storyboard */; };
-		15D097EF233BFD0100404582 /* CompanyClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 15D097EE233BFD0100404582 /* CompanyClassifier.mlmodel */; };
 		15D097F1233C992E00404582 /* SearchStockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D097F0233C992E00404582 /* SearchStockViewController.swift */; };
 		15D097F5233CABBB00404582 /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D097F4233CABBB00404582 /* ImagePickerViewController.swift */; };
 		15D097FB23447FED00404582 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D097FA23447FED00404582 /* DetailViewController.swift */; };
@@ -22,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15B40398234A14D70015CF9B /* CompanyClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CompanyClassifier.mlmodel; sourceTree = "<group>"; };
 		15D097D3233B555200404582 /* StockFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15D097D6233B555200404582 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15D097D8233B555200404582 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,9 +32,8 @@
 		15D097E2233B555300404582 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15D097E5233B555300404582 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15D097E7233B555300404582 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		15D097EE233BFD0100404582 /* CompanyClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = CompanyClassifier.mlmodel; path = ../../../CompanyClassifier.mlmodel; sourceTree = "<group>"; };
 		15D097F0233C992E00404582 /* SearchStockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStockViewController.swift; sourceTree = "<group>"; };
-		15D097F4233CABBB00404582 /* ImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImagePickerViewController.swift; path = ../ImagePickerViewController.swift; sourceTree = "<group>"; };
+		15D097F4233CABBB00404582 /* ImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewController.swift; sourceTree = "<group>"; };
 		15D097FA23447FED00404582 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		2B9ADFC5D8CC166E19D121A4 /* Pods_LogoFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LogoFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82924A95644900C5B1EB9653 /* Pods-LogoFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogoFinder.debug.xcconfig"; path = "Target Support Files/Pods-LogoFinder/Pods-LogoFinder.debug.xcconfig"; sourceTree = "<group>"; };
@@ -52,6 +52,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15B40391234A13880015CF9B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				15D097D6233B555200404582 /* AppDelegate.swift */,
+				15D097F0233C992E00404582 /* SearchStockViewController.swift */,
+				15D097F4233CABBB00404582 /* ImagePickerViewController.swift */,
+				15D097FA23447FED00404582 /* DetailViewController.swift */,
+				15D097DA233B555200404582 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		15B40392234A13AC0015CF9B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		15B40393234A13B70015CF9B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				15D097E2233B555300404582 /* Assets.xcassets */,
+				15D097DC233B555200404582 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		15B40394234A13F00015CF9B /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+				15D097E4233B555300404582 /* LaunchScreen.storyboard */,
+				15D097DF233B555200404582 /* LogoFinder.xcdatamodeld */,
+			);
+			path = Extra;
+			sourceTree = "<group>";
+		};
 		15D097CA233B555200404582 = {
 			isa = PBXGroup;
 			children = (
@@ -73,18 +110,13 @@
 		15D097D5233B555200404582 /* LogoFinder */ = {
 			isa = PBXGroup;
 			children = (
-				15D097D6233B555200404582 /* AppDelegate.swift */,
+				15B40394234A13F00015CF9B /* Extra */,
+				15B40393234A13B70015CF9B /* View */,
+				15B40392234A13AC0015CF9B /* Model */,
+				15B40391234A13880015CF9B /* Controller */,
 				15D097D8233B555200404582 /* SceneDelegate.swift */,
-				15D097DA233B555200404582 /* ViewController.swift */,
-				15D097DC233B555200404582 /* Main.storyboard */,
-				15D097FA23447FED00404582 /* DetailViewController.swift */,
-				15D097F4233CABBB00404582 /* ImagePickerViewController.swift */,
-				15D097F0233C992E00404582 /* SearchStockViewController.swift */,
-				15D097E2233B555300404582 /* Assets.xcassets */,
-				15D097E4233B555300404582 /* LaunchScreen.storyboard */,
+				15B40398234A14D70015CF9B /* CompanyClassifier.mlmodel */,
 				15D097E7233B555300404582 /* Info.plist */,
-				15D097EE233BFD0100404582 /* CompanyClassifier.mlmodel */,
-				15D097DF233B555200404582 /* LogoFinder.xcdatamodeld */,
 			);
 			path = LogoFinder;
 			sourceTree = "<group>";
@@ -222,11 +254,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				15D097F1233C992E00404582 /* SearchStockViewController.swift in Sources */,
-				15D097EF233BFD0100404582 /* CompanyClassifier.mlmodel in Sources */,
 				15D097E1233B555200404582 /* LogoFinder.xcdatamodeld in Sources */,
 				15D097F5233CABBB00404582 /* ImagePickerViewController.swift in Sources */,
 				15D097DB233B555200404582 /* ViewController.swift in Sources */,
 				15D097D7233B555200404582 /* AppDelegate.swift in Sources */,
+				15B40399234A14D70015CF9B /* CompanyClassifier.mlmodel in Sources */,
 				15D097D9233B555200404582 /* SceneDelegate.swift in Sources */,
 				15D097FB23447FED00404582 /* DetailViewController.swift in Sources */,
 			);
