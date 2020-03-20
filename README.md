@@ -25,7 +25,7 @@ Van deze bedrijven kan mijn app de logo’s herkennen (je mag wel enkel op het l
 7.	Ferrari
 8.	Ford
 9.	HP
-10.	Lays (Weer geen beursgenoteerd aandeel)
+10.	Lays (Weer geen beursgenoteerd aandeel, blijkbaar had ik honger ;))
 11.	Mcdonald’s
 12.	Nike
 13.	Paypal
